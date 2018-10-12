@@ -4,10 +4,10 @@ Examples demonstrate building JavaScript with Bazel.
 
 <table>
     <tr>
-        <td><img src="https://bazel.build/images/bazel-icon.svg" height="120"/></td>
+        <td><a href="https://bazel.build/"><img src="https://bazel.build/images/bazel-icon.svg" height="120"/></a></td>
         <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" height="120"/></td>
-        <td><img src="https://nodejs.org/static/images/logo.svg" height="120"/></td>
-        <td><img src="https://yarnpkg.com/assets/feature-speed.png" height="120"/></td>
+        <td><a href="https://nodejs.org/en/"><img src="https://nodejs.org/static/images/logo.svg" height="120"/></a></td>
+        <td><a href="https://yarnpkg.com/en/"><img src="https://yarnpkg.com/assets/feature-speed.png" height="120"/></a></td>
     </tr>
     <tr>
         <td>Bazel</td>
@@ -23,7 +23,7 @@ Examples demonstrate building JavaScript with Bazel.
 Following the [official guide](https://docs.bazel.build/versions/master/install.html) to install bazel.
 
 
-## Runnging the Examples
+## Runnging the examples
 
 ```bash
 $ bazel run //:app
@@ -34,7 +34,7 @@ If everything goes well, it will print `hello, {name}`.
 ![screenshot of the bazel javascript example building result](./assets/bazel_javascript_example.png)
 
 
-## What's included in this Example
+## What's included in this example
 
 ### 1. A basic setup for building JavaScript using bazel
 
