@@ -51,7 +51,7 @@ If everything goes well, it will print `hello, {name}`.
 
 - load rules and setup for nodejs
 
-```bazel
+```python
 git_repository(
     name = "build_bazel_rules_nodejs",
     remote = "https://github.com/bazelbuild/rules_nodejs.git",
@@ -64,7 +64,7 @@ rules_nodejs_dependencies()
 
 - install nodejs, npm and yarn for the project
 
-```bazel
+```python
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
 
 # NOTE: this rule installs nodejs, npm, and yarn, but does NOT install
@@ -75,7 +75,7 @@ node_repositories(package_json = ["//:package.json"])
 
 - Using Bazel-managed dependencies
 
-```bazel
+```python
 load("@build_bazel_rules_nodejs//:defs.bzl", "yarn_install")
 
 yarn_install(
@@ -96,7 +96,7 @@ $ bazel run @nodejs//:yarn
 
 Access the npm packages within `BUILD.bazel` With the [fine-grained npm package dependencies](https://github.com/bazelbuild/rules_nodejs#fine-grained-npm-package-dependencies) setup in `WORKSPACE`.
 
-```bazel
+```python
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 nodejs_binary(
