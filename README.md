@@ -31,7 +31,7 @@ $ bazel run //:app
 
 If everything goes well, it will print `hello, {name}`.
 
-![screenshot of the bazel javascript example building result](bazel_javascript_example.png)
+![screenshot of the bazel javascript example building result](./assets/bazel_javascript_example.png)
 
 
 ## What's included in this Example
