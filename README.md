@@ -38,18 +38,18 @@ If everything goes well, it will print `hello, {name}`.
 
 ### 1. A basic setup for building JavaScript using bazel
 
-#### [bazel.rc](./tools/bazel.rc)
+#### bazel.rc
 
 [bazel.rc](./tools/bazel.rc) contains the most common setup for bazel.
 - `build --symlink_prefix=/` avoids creating symlinks like bazel-out in the project root. The output's annoy and cause performance issue with the editor.
 - `query --output=label_kind` more usful when prints the `query` result with name and kind.
 
 
-#### [WORKSPACE](./WORKSPACE)
+#### WORKSPACE
 
 [WORKSPACE](./WORKSPACE) contains minimal setup for building the JavaScript code.
 
-1. load rules and setup for nodejs
+- load rules and setup for nodejs
 
 ```bazel
 git_repository(
@@ -62,7 +62,7 @@ load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
 rules_nodejs_dependencies()
 ```
 
-2. install nodejs, npm and yarn for the project
+- install nodejs, npm and yarn for the project
 
 ```bazel
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
@@ -73,7 +73,7 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
 node_repositories(package_json = ["//:package.json"])
 ```
 
-3. Using Bazel-managed dependencies
+- Using Bazel-managed dependencies
 
 ```bazel
 load("@build_bazel_rules_nodejs//:defs.bzl", "yarn_install")
