@@ -1,14 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
-nodejs_binary(
-    name = "app",
-    install_source_map_support = False,
-    entry_point = "bazel_js_example/src/index.js",
-    data = [
-        "src/lib.js",
-        "src/index.js",
-        "@npm//lodash",
-    ]
+buildifier(
+    name = "buildifier",
 )
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")

@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+# running a binary from npm package
+nodejs_binary(
+    name = "rollup",
+    data = [
+        "@npm//rollup",
+    ],
+    entry_point = "rollup/bin/rollup",
+    install_source_map_support = False,
+)

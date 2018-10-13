@@ -1,0 +1,15 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+# running a binary from local source
+nodejs_binary(
+    name = "app",
+    data = [
+        "index.js",
+        "lib.js",
+        "@npm//lodash",
+    ],
+    entry_point = "bazel_js_example/src/node/index.js",
+    install_source_map_support = False,
+)

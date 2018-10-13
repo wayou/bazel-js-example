@@ -102,12 +102,34 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 nodejs_binary(
     name = "app",
     install_source_map_support = False,
-    entry_point = "bazel_js_example/src/index.js",
     data = [
-        "src/lib.js",
-        "src/index.js",
+        "index.js",
+        "lib.js",
         "@npm//lodash",
-    ]
+    ],
+    entry_point = "bazel_js_example/src/node/index.js",
+)
+
+```
+
+### Running node binary from npm packages
+
+Run the rollup binary example install from npm.
+
+> all params after `--` will path through to the binary
+
+```bash
+$ bazel run //src/rollup:rollup -- -v
+```
+
+```python
+nodejs_binary(
+    name="rollup",
+    install_source_map_support = False,
+    entry_point = "rollup/bin/rollup",
+    data = [
+        "@npm//rollup",
+    ],
 )
 ```
 
