@@ -25,8 +25,12 @@ Following the [official guide](https://docs.bazel.build/versions/master/install.
 
 ## Runnging the examples
 
+Run `bazel query ...` for available targets.
+
+For example, running the nodejs binary example:
+
 ```bash
-$ bazel run //:app
+$ bazel run //src/node:app
 ```
 
 If everything goes well, it will print `hello, {name}`.
