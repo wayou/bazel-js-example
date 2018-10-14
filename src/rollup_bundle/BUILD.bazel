@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle")
+
+rollup_bundle(
+    name = "bundle",
+    srcs = [
+        "index.js",
+        "lib.js",
+    ],
+    entry_point = "src/rollup_bundle/index.js",
+    globals = {"some_global_var": "runtime_name_of_global_var"},
+    license_banner = ":license.txt",
+    deps = [
+        "@npm//lodash",
+    ],
+)

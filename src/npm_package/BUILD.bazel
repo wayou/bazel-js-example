@@ -1,0 +1,15 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
+npm_package(
+    name = "sample_package",
+    srcs = [
+        "index.js",
+        "lib.js",
+        "package.json",
+    ],
+    replacements = {"//internal/": "//"},
+    deps = [
+        "@npm//lodash",
+    ],
+)

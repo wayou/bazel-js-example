@@ -90,7 +90,18 @@ yarn_install(
 ```
 
 
-### 2. Loading and consume packages from npm
+### 2. Buildifier
+
+Using Buidifier form [bazelbuild/buildtools](https://github.com/bazelbuild/buildtools) to generate and format bazel files.
+
+The setup code locates in the root `BUILD.bazel` file and format code with the following command:
+
+```
+$ bazel run //:buildifier
+```
+
+
+### 3. Loading and consume packages from npm
 
 When runing bazel the first time, it will automatically install dependencies. Alternatively you can manually install by running:
 
@@ -116,7 +127,7 @@ nodejs_binary(
 
 ```
 
-### Running node binary from npm packages
+### 4. Running node binary from npm packages
 
 Run the rollup binary example install from npm.
 
@@ -136,5 +147,55 @@ nodejs_binary(
     ],
 )
 ```
+
+
+### 5. Bundle js with rollup
+
+Bundle js with `rollup_bundle` rules.
+
+```bash
+$ bazel build //src/rollup_bundle:bundle
+```
+
+```python
+nodejs_binary(
+    name="rollup",
+    install_source_map_support = False,
+    entry_point = "rollup/bin/rollup",
+    data = [
+        "@npm//rollup",
+    ],
+)
+```
+
+6. Stamping
+
+*Currently not avaialbe.*
+
+
+### 7. Publishing to npm
+
+Run `bazel build //src/npm_package:sample_package` to generate publishable files.
+
+```python
+load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
+npm_package(
+    name = "sample_package",
+    srcs = [
+        "index.js",
+        "lib.js",
+        "package.json",
+    ],
+    replacements = {"//internal/": "//"},
+    deps = [
+        "@npm//lodash",
+    ],
+)
+```
+
+
+
+
+
 
 
