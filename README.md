@@ -170,7 +170,7 @@ nodejs_binary(
 
 6. Stamping
 
-*Currently not avaialbe.*
+*Currently not avaialbe. Refer https://github.com/bazelbuild/bazel/issues/1054 for more updates.*
 
 
 ### 7. Publishing to npm
